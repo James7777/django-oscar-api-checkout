@@ -15,4 +15,4 @@ class StaffOnly(PaymentMethodPermission):
 
 class CustomerOnly(PaymentMethodPermission):
     def is_permitted(self, request=None, user=None):
-        return (user is None or (user.is_authenticated and not user.is_staff))
+        return (user is None or not user.is_authenticated or (user.is_authenticated and not user.is_staff)
