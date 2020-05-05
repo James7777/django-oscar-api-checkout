@@ -75,6 +75,7 @@ class CheckoutView(generics.GenericAPIView):
 
     Returns the order object.
     """
+    queryset = ""
     serializer_class = CheckoutSerializer
 
     def post(self, request, format=None):
