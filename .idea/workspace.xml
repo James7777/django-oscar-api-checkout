@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/oscarapicheckout/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+            <state relative-caret-position="362">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -110,12 +110,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588691625302</updated>
-      <workItem from="1588691626721" duration="1529000" />
+      <workItem from="1588691626721" duration="2225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1529000" />
+    <option name="totallyTimeSpent" value="2225000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -150,8 +150,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/oscarapicheckout/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="167" column="32" selection-start-line="167" selection-start-column="32" selection-end-line="167" selection-end-column="32" />
+        <state relative-caret-position="362">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>

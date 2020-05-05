@@ -109,9 +109,8 @@ class CheckoutView(generics.GenericAPIView):
         utils.set_payment_method_states(order, request, new_states)
 
         # Return order data
-        o_ser = OrderSerializer(order, context={ 'request': request })
+        o_ser = OrderSerializer(order, context={'request': request})
         return Response(o_ser.data)
-
 
     def _record_payments(self, previous_states, request, order, methods, data):
         order_balance = [order.total_incl_tax]
@@ -143,12 +142,12 @@ class CheckoutView(generics.GenericAPIView):
             return state
 
         # Loop through each method with a specified amount to charge
-        data_amount_specified = { k: v for k, v in data.items() if not v['pay_balance'] }
+        data_amount_specified = {k: v for k, v in data.items() if not v['pay_balance']}
         for key, method_data in data_amount_specified.items():
             new_states[key] = record(key, method_data)
 
         # Change the remainder, not covered by the above methods, to the method marked with `pay_balance`
-        data_pay_balance = { k: v for k, v in data.items() if v['pay_balance'] }
+        data_pay_balance = {k: v for k, v in data.items() if v['pay_balance']}
         for key, method_data in data_pay_balance.items():
             method_data['amount'] = order_balance[0]
             new_states[key] = record(key, method_data)
@@ -158,6 +157,8 @@ class CheckoutView(generics.GenericAPIView):
 
 class PaymentStatesView(generics.GenericAPIView):
     queryset = ""
+    serializer_class = PaymentStateSerializer
+
     def get(self, request, pk=None):
         # We don't really use the provided pk. It's just there to be compatible with oscarapi
         if pk and int(pk) != request.session.get(CHECKOUT_ORDER_ID):
