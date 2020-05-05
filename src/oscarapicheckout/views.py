@@ -157,6 +157,7 @@ class CheckoutView(generics.GenericAPIView):
 
 
 class PaymentStatesView(generics.GenericAPIView):
+    queryset = ""
     def get(self, request, pk=None):
         # We don't really use the provided pk. It's just there to be compatible with oscarapi
         if pk and int(pk) != request.session.get(CHECKOUT_ORDER_ID):
