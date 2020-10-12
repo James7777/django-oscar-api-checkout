@@ -3,9 +3,8 @@ from decimal import Decimal
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.db import transaction
-from django.utils import six
 from django.utils.module_loading import import_string
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.encoding import force_text
 from rest_framework import serializers, exceptions
 from rest_framework.utils import html
@@ -158,7 +157,7 @@ class PaymentMethodsSerializer(serializers.DictField):
         result = {}
         errors = OrderedDict()
         for key, value in data.items():
-            key = six.text_type(key)
+            key = str(key)
             try:
                 result[key] = self.child.run_validation(value)
             except ValidationError as e:
@@ -279,7 +278,8 @@ class CheckoutSerializer(OscarCheckoutSerializer):
         pre_calculate_total.send(
             sender=self.__class__,
             basket=data['basket'],
-            shipping_address=data['shipping_address'])
+            shipping_address=data['shipping_address'],
+            shipping_charge=data['shipping_charge'])
 
         # Figure out the final total order price
         data['total'] = OrderTotalCalculator().calculate(data['basket'], data['shipping_charge'])

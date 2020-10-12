@@ -175,6 +175,11 @@ These are the basic steps to add an item to the basket and checkout using the AP
 Changelog
 =========
 
+1.1.0
+------------------
+- Add support for calculating taxes on shipping charges.
+- Fix bug with ``Voucher.num_orders`` value when retrying payment declined orders.
+
 1.0.0
 ------------------
 - Remove direct dependency on ``phonenumberslite`` since it's actually a dependency of ``django-oscar``.
